@@ -7,10 +7,8 @@ pipeline {
         stage('Build') {
             agent { dockerfile true }
             steps {
-                sh 'pwd'
-                sh 'sudo chown -R 122:127 "/.npm"'
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'pwd '
+                sh 'npm build'
             }
         }
     stage('Deploy'){
