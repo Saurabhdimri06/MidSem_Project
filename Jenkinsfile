@@ -8,6 +8,7 @@ pipeline {
             agent { dockerfile true }
             steps {
                 sh 'pwd'
+                sh 'sudo chown -R 122:127 "/.npm"'
                 sh 'npm install'
                 sh 'npm run build'
             }
