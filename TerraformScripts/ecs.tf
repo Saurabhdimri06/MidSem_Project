@@ -1,7 +1,7 @@
 # Main file used to create an ECS cluster
 
 resource "aws_ecs_cluster" "main" {
-  name = "myapp-cluster"
+  name = "midSemApp-cluster"
 }
 
 #metadata for the resource are defined here
