@@ -33,19 +33,23 @@ pipeline
                 }
             }
         }
-        stage('Deploy-Terraform') 
+        stage('AWS Deployment')
         {
             agent any
-            script  
+            steps
             {
-                    aws.withCredentials(awsCredentials)
+                script
                 {
-                    dir('TerraformScripts'){
-                    sh 'terraform init'
-                    sh 'terraform apply'
+                    aws.withCredentials(awsCredentials)
+                    {
+                    dir('TerraformScripts')
+                        {
+                        sh 'terraform init'
+                        sh 'terraform apply'
+                        }
+                    }
                 }
             }
-        }
         }
     }
 }
