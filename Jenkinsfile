@@ -11,7 +11,7 @@ pipeline {
                 sh 'npm build'
             }
         }
-    stage('Deploy'){
+    stage('Deploy-DockerHub'){
         agent any
         steps {
             script {
