@@ -26,6 +26,7 @@ pipeline {
             agent any
             steps {
                 sh 'cd TerraformScripts '
+                sh 'terraform init'
                 sh 'terraform apply'
             }
         }
