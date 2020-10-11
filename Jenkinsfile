@@ -25,9 +25,10 @@ pipeline {
         stage('Deploy-Terraform') {
             agent any
             steps {
-                sh 'cd TerraformScripts'
+                dir('TerraformScripts'){
                 sh 'terraform init'
                 sh 'terraform apply'
+                }
             }
         }
     }
