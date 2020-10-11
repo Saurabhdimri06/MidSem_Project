@@ -22,5 +22,12 @@ pipeline {
                 }
             }
         }
+        stage('Deploy-Terraform') {
+            agent any
+            steps {
+                sh 'cd TerraformScripts '
+                sh 'terraform apply'
+            }
+        }
     }
 }
