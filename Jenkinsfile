@@ -1,6 +1,6 @@
 pipeline {
     environment{
-    registryCredential = 'saurabh06-dockerhub'
+    registryCredential = 'saurabh-dockerhub'
     }
     agent none
     stages {
