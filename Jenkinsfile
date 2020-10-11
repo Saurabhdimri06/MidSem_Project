@@ -1,3 +1,4 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-saurabh']]
 pipeline {
     environment{
     registryCredential = 'saurabh-dockerhub'
@@ -24,10 +25,11 @@ pipeline {
         }
         stage('Deploy-Terraform') {
             agent any
-            steps {
+            script{
+                    aws.withCredentials(awsCredentials){
                 dir('TerraformScripts'){
                 sh 'terraform init'
-                sh 'terraform apply -auto-approve'
+                sh 'terraform apply'
                 }
             }
         }
