@@ -40,12 +40,12 @@ pipeline
             {
                 script
                 {
-                    aws.withCredentials(awsCredentials)
+                    withCredentials(awsCredentials)
                     {
                     dir('TerraformScripts')
                         {
                         sh 'terraform init'
-                        sh 'terraform apply'
+                        sh 'terraform apply -auto-approve'
                         }
                     }
                 }
